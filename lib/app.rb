@@ -4,8 +4,6 @@ require "sqlite3"
 
 DB = SQLite3::Database.new(File.join(File.dirname(__FILE__), 'db/jukebox.sqlite'))
 
-
-
 get '/' do
   @artists_sorted = DB.execute("SELECT * FROM artists ORDER BY name ASC;")
   erb :index
